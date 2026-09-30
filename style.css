@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #080014;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Glowing background */
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, #ff4fa3 0%, transparent 25%),
+    radial-gradient(circle at 80% 30%, #8c52ff 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, #ff2d75 0%, transparent 30%), #080014;
+  filter: blur(20px);
+  z-index: -2;
+}
+
+/* Floating stars */
+.background::before,
+.background::after {
+  content: "✦   ✧   ⋆   ✦   ♡   ✧   ⋆   ✦   ♡   ✧";
+  position: absolute;
+  width: 100%;
+  font-size: 25px;
+  color: #ffffff;
+  opacity: 0.5;
+  animation: stars 8s linear infinite;
+}
+
+.background::before {
+  top: 15%;
+}
+
+.background::after {
+  top: 70%;
+  animation-delay: 3s;
+}
+
+@keyframes stars {
+  from {
+    transform: translateX(-20px);
+  }
+
+  to {
+    transform: translateX(40px);
+  }
+}
+
+/* Main container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+/* Opening screen */
+.opening {
+  text-align: center;
+  padding: 45px 35px;
+  max-width: 550px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 20px rgba(255, 74, 163, 0.4),
+    0 0 60px rgba(140, 82, 255, 0.2);
+  animation: floating 4s ease-in-out infinite;
+}
+
+.heart {
+  font-size: 75px;
+  margin-bottom: 15px;
+  animation: heartbeat 1.5s infinite;
+  filter: drop-shadow(0 0 10px #ff4fa3) drop-shadow(0 0 30px #ff4fa3);
+}
+
+.opening h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+  text-shadow:
+    0 0 10px #ff65ad,
+    0 0 30px #ff65ad;
+}
+
+.question {
+  font-size: 28px;
+  color: #ffd6ec;
+  margin-bottom: 10px;
+}
+
+.small-text {
+  color: #d8c6df;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #ff3d91, #9b5cff, #ff3d91);
+  background-size: 200% 100%;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow:
+    0 0 15px #ff3d91,
+    0 0 35px rgba(155, 92, 255, 0.7);
+  transition: 0.3s;
+  animation: gradientMove 3s linear infinite;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 20px #ff3d91,
+    0 0 50px #9b5cff;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Love letter */
+.letter {
+  display: none;
+  max-width: 750px;
+  width: 100%;
+  padding: 45px;
+  background: rgba(20, 5, 35, 0.82);
+  border: 1px solid rgba(255, 150, 220, 0.4);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 20px rgba(255, 65, 150, 0.4),
+    0 0 70px rgba(155, 92, 255, 0.25);
+  animation: appear 1s ease;
+}
+
+.glowing-heart {
+  text-align: center;
+  font-size: 55px;
+  animation: heartbeat 1.5s infinite;
+  filter: drop-shadow(0 0 10px #ff4fa3) drop-shadow(0 0 25px #ff4fa3);
+}
+
+.letter h1 {
+  text-align: center;
+  font-size: 38px;
+  margin: 10px 0;
+  color: #ffd6ec;
+  text-shadow:
+    0 0 10px #ff4fa3,
+    0 0 25px #ff4fa3;
+}
+
+.line {
+  width: 100px;
+  height: 3px;
+  background: #ff5ca8;
+  margin: 20px auto 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ff5ca8;
+}
+
+.letter p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #f1e5f3;
+  margin-bottom: 20px;
+}
+
+.letter strong {
+  color: #ff9bca;
+  text-shadow: 0 0 10px #ff4fa3;
+}
+
+.special {
+  text-align: center;
+  font-size: 18px !important;
+  color: #ffc4df !important;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 72, 155, 0.08);
+  box-shadow: inset 0 0 20px rgba(255, 72, 155, 0.1);
+}
+
+.closing {
+  text-align: center;
+  color: #dcb9e9 !important;
+}
+
+.signature {
+  text-align: right;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #d9c8df;
+}
+
+.signature span {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 25px;
+  color: #ff9bca;
+  text-shadow:
+    0 0 10px #ff4fa3,
+    0 0 25px #ff4fa3;
+}
+
+.back-button {
+  display: block;
+  margin: 35px auto 0;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .opening {
+    padding: 35px 20px;
+  }
+
+  .opening h1 {
+    font-size: 35px;
+  }
+
+  .question {
+    font-size: 23px;
+  }
+
+  .letter {
+    padding: 30px 20px;
+  }
+
+  .letter h1 {
+    font-size: 30px;
+  }
+
+  .letter p {
+    font-size: 15px;
+  }
+}
